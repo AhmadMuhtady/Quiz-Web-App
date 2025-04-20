@@ -29,6 +29,7 @@ body {
 	width: 100%;
 	max-width: 300px;
 	height: 400px;
+	background-color: #1e1e2f;
 }
 
 input {
@@ -49,7 +50,7 @@ button {
 	padding: 0.6em 1em;
 	border: none;
 	border-radius: 10px;
-	background-color: #8e44ad;
+	background-color: #3498db;
 	color: #fff;
 	font-size: 1em;
 	cursor: pointer;
@@ -57,7 +58,7 @@ button {
 	transition: background-color 0.3s ease;
 }
 button:hover {
-	background-color: #732d91;
+	background-color: #2c80b4;
 }
 input::placeholder {
 	color: rgba(255, 255, 255, 0.7);
