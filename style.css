@@ -111,3 +111,12 @@ h1 {
 	transform: scale(0.98);
 	position: absolute;
 }
+
+.quiz-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 2rem;
+	align-items: center;
+	width: 100%;
+}
