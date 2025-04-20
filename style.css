@@ -25,7 +25,8 @@ body {
 	position: relative;
 }
 
-.login-container {
+.login-container,
+.register-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
