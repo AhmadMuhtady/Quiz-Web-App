@@ -10,28 +10,21 @@ const filteredUsers = users.filter(
 	(user) => user.scores && Object.keys(user.scores).length > 0
 );
 
-if (users.length === 0) {
-	userScoreList.innerHTML = '<p>No Students found.</p>';
+if (filteredUsers.length === 0) {
+	userScoreList.innerHTML = '<p>No quiz results available.</p>';
 } else {
-	users.forEach((user) => {
-		const userDiv = document.createElement('div');
-		userDiv.classList.add('user-score-card');
-		userDiv.innerHTML = `
-		<p><strong>First Name:</strong> ${user.firstName}</p>
-		<p><strong>Last Name:</strong> ${user.lastName}</p>
-		<p><strong>Email:</strong> ${user.email}</p>
-	  `;
-		if (user.scores && Object.keys(user.scores).length > 0) {
-			for (let quizTitle in user.scores) {
-				userDiv.innerHTML += `
-			<p><strong>Quiz Title:</strong> ${quizTitle}</p>
-			<p><strong>Score:</strong> ${user.scores[quizTitle]}</p>
-		  `;
-			}
-		} else {
-			userDiv.innerHTML += `<p><em>No quizzes taken yet.</em></p>`;
+	filteredUsers.forEach((user) => {
+		for (let quizTitle in user.scores) {
+			const userDiv = document.createElement('div');
+			userDiv.classList.add('user-score-card');
+			userDiv.innerHTML = `
+		  <p><strong>First Name:</strong> ${user.firstName}</p>
+		  <p><strong>Last Name:</strong> ${user.lastName}</p>
+		  <p><strong>Email:</strong> ${user.email}</p>
+		  <p><strong>Quiz Title:</strong> ${quizTitle}</p>
+		  <p><strong>Score:</strong> ${user.scores[quizTitle]}</p>
+		`;
+			userScoreList.appendChild(userDiv);
 		}
-
-		userScoreList.appendChild(userDiv);
 	});
 }
