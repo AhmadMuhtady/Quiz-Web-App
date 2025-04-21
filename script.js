@@ -7,3 +7,7 @@ loginTab.addEventListener('click', () => {
 	loginForm.classList.add('hidden');
 	registerForm.classList.remove('hidden');
 });
+registerTab.addEventListener('click', () => {
+	registerForm.classList.add('hidden');
+	loginForm.classList.remove('hidden');
+});
