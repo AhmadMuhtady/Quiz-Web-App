@@ -28,3 +28,15 @@ if (!quizData) {
 		quizForm.appendChild(qDiv);
 	});
 }
+
+document.getElementById("submit-quiz").addEventListener("click", function (e) {
+    e.preventDefault();
+    const formData = new FormData(quizForm);
+    let score = 0;
+  
+    quizData.questions.forEach((q, index) => {
+      const selected = formData.get(`q${index}`);
+      if (selected === q.answer) {
+        score++;
+      }
+    });
