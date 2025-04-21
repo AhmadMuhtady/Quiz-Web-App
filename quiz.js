@@ -47,4 +47,5 @@ document.getElementById('submit-quiz').addEventListener('click', function (e) {
 		users[userIndex].scores[quizData.title] = score;
 		localStorage.setItem('users', JSON.stringify(users));
 	}
+	resultDiv.innerHTML = `<h2>Your score: ${score}/${quizData.questions.length}</h2>`;
 });
