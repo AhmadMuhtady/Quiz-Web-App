@@ -12,7 +12,26 @@ registerTab.addEventListener('click', () => {
 	loginForm.classList.remove('hidden');
 });
 
-const firstName = document.getElementById('register-first-name').value;
-const lastName = document.getElementById('register-last-name').value;
-const email = document.getElementById('register-email').value;
-const password = document.getElementById('register-password').value;
+registerForm.querySelector('button').addEventListener('click', (e) => {
+	e.preventDefault();
+
+	const firstName = document.getElementById('register-first-name').value;
+	const lastName = document.getElementById('register-last-name').value;
+	const email = document.getElementById('register-email').value;
+	const password = document.getElementById('register-password').value;
+
+	const users = JSON.parse(localStorage.getItem('users')) || [];
+
+	if (users.find((user) => user.email === email)) {
+		alert('User already exists!');
+		return;
+	}
+	users.push({ firstName, lastName, email, password, scores: {} });
+	localStorage.setItem('users', JSON.stringify(users));
+
+	alert('Registration successful! Please login.');
+
+	// Optionally, switch to the login tab
+	registerForm.classList.add('hidden');
+	loginForm.classList.remove('hidden');
+});
