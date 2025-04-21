@@ -48,4 +48,6 @@ document.getElementById('submit-quiz').addEventListener('click', function (e) {
 		localStorage.setItem('users', JSON.stringify(users));
 	}
 	resultDiv.innerHTML = `<h2>Your score: ${score}/${quizData.questions.length}</h2>`;
+	resultDiv.textContent = `You scored ${score} out of ${quizData.questions.length}!`;
+	resultDiv.scrollIntoView({ behavior: 'smooth' });
 });
