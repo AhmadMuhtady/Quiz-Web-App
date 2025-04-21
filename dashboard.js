@@ -7,7 +7,7 @@ const users = JSON.parse(localStorage.getItem('users')) || [];
 const userScoreList = document.getElementById('user-score-list');
 
 if (users.length === 0) {
-	userScoreList.innerHTML = '<p>No Students grade found.</p>';
+	userScoreList.innerHTML = '<p>No Students found.</p>';
 } else {
 	users.forEach((user) => {
 		const div = document.createElement('div');
