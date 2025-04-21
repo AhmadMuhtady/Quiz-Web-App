@@ -29,14 +29,22 @@ if (!quizData) {
 	});
 }
 
-document.getElementById("submit-quiz").addEventListener("click", function (e) {
-    e.preventDefault();
-    const formData = new FormData(quizForm);
-    let score = 0;
-  
-    quizData.questions.forEach((q, index) => {
-      const selected = formData.get(`q${index}`);
-      if (selected === q.answer) {
-        score++;
-      }
-    });
+document.getElementById('submit-quiz').addEventListener('click', function (e) {
+	e.preventDefault();
+	const formData = new FormData(quizForm);
+	let score = 0;
+
+	quizData.questions.forEach((q, index) => {
+		const selected = formData.get(`q${index}`);
+		if (selected === q.answer) {
+			score++;
+		}
+	});
+	const users = JSON.parse(localStorage.getItem('users')) || [];
+	const userIndex = users.findIndex((u) => u.email === currentUser.email);
+	if (userIndex !== -1) {
+		users[userIndex].scores = users[userIndex].scores || {};
+		users[userIndex].scores[quizData.title] = score;
+		localStorage.setItem('users', JSON.stringify(users));
+	}
+});
