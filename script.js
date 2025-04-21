@@ -22,14 +22,44 @@ registerForm.querySelector('button').addEventListener('click', (e) => {
 	const users = JSON.parse(localStorage.getItem('users')) || [];
 
 	if (users.find((user) => user.email === email)) {
-		alert('User already exists!');
+		alert('User already exists');
 		return;
 	}
 	users.push({ firstName, lastName, email, password, scores: {} });
 
 	localStorage.setItem('users', JSON.stringify(users));
-	alert('Registered successfully! Please log in.');
+	alert('Registered successfully, Please log in.');
 
 	registerForm.reset();
 	loginTab.click();
+});
+
+loginForm.querySelector('button').addEventListener('click', (e) => {
+	e.preventDefault();
+	const email = document.getElementById('login-email').value;
+	const password = document.getElementById('login-password').value;
+
+	if (email === 'admin@quiz.com' && password === 'admin123') {
+		localStorage.setItem(
+			'currentUser',
+			JSON.stringify({ email, isAdmin: true })
+		);
+		window.location.href = 'dashboard.html';
+		return;
+	}
+
+	const users = JSON.parse(localStorage.getItem('users')) || [];
+	const user = users.find(
+		(user) => user.email === email && user.password === password
+	);
+
+	if (user) {
+		localStorage.setItem(
+			'currentUser',
+			JSON.stringify({ email, firstName: user.firstName, isAdmin: false })
+		);
+		window.location.href = 'home.html';
+	} else {
+		alert('Invalid credentials');
+	}
 });
