@@ -37,7 +37,7 @@ const quizList = document.getElementById('quiz-list');
 const takeQuizButton = document.createElement('button');
 takeQuizButton.textContent = 'Take the Quiz';
 takeQuizButton.addEventListener('click', () => {
-	localStorage.setItem('currentQuiz', JSON.stringify(quizzes[0])); // only one quiz
+	localStorage.setItem('currentQuiz', JSON.stringify(quizzes[0]));
 	window.location.href = 'quiz.html';
 });
 quizList.appendChild(takeQuizButton);
