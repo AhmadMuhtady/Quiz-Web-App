@@ -10,21 +10,24 @@ if (users.length === 0) {
 	userScoreList.innerHTML = '<p>No Students found.</p>';
 } else {
 	users.forEach((user) => {
-		const div = document.createElement('div');
-		div.style.marginBottom = '1rem';
-		div.innerHTML = `<h3>${user.email}</h3>`;
+		const userDiv = document.createElement('div');
+		userDiv.classList.add('user-score-card'); // for styling
+		userDiv.innerHTML = `
+		<p><strong>First Name:</strong> ${user.firstName}</p>
+		<p><strong>Last Name:</strong> ${user.lastName}</p>
+		<p><strong>Email:</strong> ${user.email}</p>
+	  `;
 		if (user.scores && Object.keys(user.scores).length > 0) {
-			const ul = document.createElement('ul');
 			for (let quizTitle in user.scores) {
-				const li = document.createElement('li');
-				li.textContent = `${quizTitle}: ${user.scores[quizTitle]}`;
-				ul.appendChild(li);
+				userDiv.innerHTML += `
+			<p><strong>Quiz Title:</strong> ${quizTitle}</p>
+			<p><strong>Score:</strong> ${user.scores[quizTitle]}</p>
+		  `;
 			}
-			div.appendChild(ul);
 		} else {
-			div.innerHTML += '<p>No quizzes taken yet.</p>';
+			userDiv.innerHTML += `<p><em>No quizzes taken yet.</em></p>`;
 		}
 
-		userScoreList.appendChild(div);
+		userScoreList.appendChild(userDiv);
 	});
 }
