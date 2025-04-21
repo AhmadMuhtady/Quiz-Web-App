@@ -14,7 +14,6 @@ registerTab.addEventListener('click', () => {
 
 registerForm.querySelector('button').addEventListener('click', (e) => {
 	e.preventDefault();
-
 	const firstName = document.getElementById('register-first-name').value;
 	const lastName = document.getElementById('register-last-name').value;
 	const email = document.getElementById('register-email').value;
@@ -27,11 +26,10 @@ registerForm.querySelector('button').addEventListener('click', (e) => {
 		return;
 	}
 	users.push({ firstName, lastName, email, password, scores: {} });
+
 	localStorage.setItem('users', JSON.stringify(users));
+	alert('Registered successfully! Please log in.');
 
-	alert('Registration successful! Please login.');
-
-	// Optionally, switch to the login tab
-	registerForm.classList.add('hidden');
-	loginForm.classList.remove('hidden');
+	registerForm.reset();
+	loginTab.click();
 });
