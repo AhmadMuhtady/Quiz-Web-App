@@ -135,3 +135,7 @@ h1 {
 .quiz-card:hover {
 	background-color: #2c2c40;
 }
+
+#submit-quiz {
+	margin-top: 2rem;
+}
