@@ -11,3 +11,8 @@ registerTab.addEventListener('click', () => {
 	registerForm.classList.add('hidden');
 	loginForm.classList.remove('hidden');
 });
+
+const firstName = document.getElementById('register-first-name').value;
+const lastName = document.getElementById('register-last-name').value;
+const email = document.getElementById('register-email').value;
+const password = document.getElementById('register-password').value;
