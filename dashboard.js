@@ -6,6 +6,10 @@ if (!currentUser || !currentUser.isAdmin) {
 const users = JSON.parse(localStorage.getItem('users')) || [];
 const userScoreList = document.getElementById('user-score-list');
 
+const filteredUsers = users.filter(
+	(user) => user.scores && Object.keys(user.scores).length > 0
+);
+
 if (users.length === 0) {
 	userScoreList.innerHTML = '<p>No Students found.</p>';
 } else {
