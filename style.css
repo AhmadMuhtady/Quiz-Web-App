@@ -75,12 +75,12 @@ input::placeholder {
 	color: rgba(255, 255, 255, 0.7);
 }
 h1 {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1.2rem;
 }
 
 .login-container h2,
 .register-container h2 {
-	margin-bottom: 0.3rem;
+	margin-bottom: 0.2rem;
 }
 
 .login-container h3,
