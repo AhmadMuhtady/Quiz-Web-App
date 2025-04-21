@@ -11,7 +11,7 @@ if (users.length === 0) {
 } else {
 	users.forEach((user) => {
 		const userDiv = document.createElement('div');
-		userDiv.classList.add('user-score-card'); // for styling
+		userDiv.classList.add('user-score-card');
 		userDiv.innerHTML = `
 		<p><strong>First Name:</strong> ${user.firstName}</p>
 		<p><strong>Last Name:</strong> ${user.lastName}</p>
